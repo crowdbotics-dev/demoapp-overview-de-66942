@@ -5,54 +5,66 @@ import { useNavigation, useNavigationState } from "@react-navigation/native";
 
 function AppMenu() {
   const options = useContext(OptionsContext);
-  return <SafeAreaView style={options.styles.container}>
+  return (
+    <SafeAreaView style={options.styles.container}>
       <ScrollView>
         <AppRoutes options={options} />
         <View style={options.styles.hr} />
         <GlobalOptions options={options} />
       </ScrollView>
-    </SafeAreaView>;
+    </SafeAreaView>
+  );
 }
 
-function AppRoutes({
-  options
-}) {
+function AppRoutes({ options }) {
   const navigation = useNavigation();
-  const routes = useNavigationState(state => state.routeNames.filter(name => name !== options.title));
+  const routes = useNavigationState((state) =>
+    state.routeNames.filter((name) => name !== options.title)
+  );
 
-  const pressed = ({
-    pressed
-  }) => [pressed ? options.styles.buttonPressed : options.styles.buttonNotPressed, options.styles.button];
-
-  const links = routes.map(route => {
-    return <Pressable onPress={() => navigation.navigate(route)} style={pressed} key={route}>
+  const pressed = ({ pressed }) => [
+    pressed ? options.styles.buttonPressed : options.styles.buttonNotPressed,
+    options.styles.button
+  ];
+  const links = routes.map((route) => {
+    return (
+      <Pressable
+        onPress={() => navigation.navigate(route)}
+        style={pressed}
+        key={route}
+      >
         <Text style={options.styles.buttonText}>{route}</Text>
-      </Pressable>;
+      </Pressable>
+    );
   });
-  return <View>
+  return (
+    <View>
       <Text style={options.styles.text}>
         {options.copy} ({routes.length})
       </Text>
       {links}
-    </View>;
+    </View>
+  );
 }
 
-function GlobalOptions({
-  options
-}) {
+function GlobalOptions({ options }) {
   const global = useContext(GlobalOptionsContext);
   const globalInfo = Object.entries(global).map(([key, val]) => {
-    return <View style={options.styles.text} key={key}>
+    return (
+      <View style={options.styles.text} key={key}>
         <Text style={options.styles.boldText}>{key}</Text>
         <Text>{val}</Text>
-      </View>;
+      </View>
+    );
   });
-  return <View>
+  return (
+    <View>
       <Text style={options.styles.text}>
         Global options ({Object.entries(global).length})
       </Text>
       {globalInfo}
-    </View>;
+    </View>
+  );
 }
 
 export default {
