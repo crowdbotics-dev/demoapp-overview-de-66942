@@ -61,6 +61,7 @@ This section will show any installed modules you add from the Storyboard Modules
 - [camera]()
 - [privacy-policy]()
 - [terms-and-conditions]()
+- [react-native-login](modules/login)
 
 # Getting started: Frontend
 
