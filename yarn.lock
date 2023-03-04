@@ -1030,7 +1030,7 @@
   resolved "https://registry.yarnpkg.com/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz#b2ac626d6cb9c8718ab459166d4bb405b8ffa78b"
   integrity sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==
 
-"@modules/app-menu@file:./modules/app-menu/":
+"@modules/app-menu@file:./modules/app-menu":
   version "1.0.0"
 
 "@modules/camera@file:./modules/camera":
@@ -1049,6 +1049,9 @@
   version "1.0.1"
   dependencies:
     react-native-render-html "^5.1.0"
+
+"@modules/splash@file:./modules/splash/":
+  version "1.0.0"
 
 "@modules/terms-and-conditions@file:./modules/terms-and-conditions":
   version "1.0.1"
